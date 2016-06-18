@@ -201,9 +201,6 @@
   <data name="TextBoxPlayer2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="TextBoxPlayer2.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="TextBoxPlayer2.Location" type="System.Drawing.Point, System.Drawing">
     <value>174, 97</value>
   </data>
@@ -256,13 +253,13 @@
     <value>True</value>
   </data>
   <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 10.8pt</value>
+    <value>Arial, 12pt</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>46, 174</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 22</value>
+    <value>209, 23</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>

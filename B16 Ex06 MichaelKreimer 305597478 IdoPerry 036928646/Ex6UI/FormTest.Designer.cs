@@ -55,7 +55,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(665, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(851, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -135,9 +135,9 @@
             this.toolStripStatusLabelCurrentPlayer,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabelScore});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 571);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 644);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(665, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(851, 25);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -165,7 +165,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(665, 596);
+            this.ClientSize = new System.Drawing.Size(851, 669);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
