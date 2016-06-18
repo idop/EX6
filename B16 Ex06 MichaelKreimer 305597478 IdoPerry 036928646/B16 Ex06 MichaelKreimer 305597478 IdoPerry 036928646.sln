@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex6GameLogic", "Ex6GameLogic\Ex6GameLogic.csproj", "{4264809E-4FAD-4B5C-845B-747070C165E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex6GameUtils", "Ex6GameUtils\Ex6GameUtils.csproj", "{3F1DA689-2C06-4489-B7C3-BC43BA5D339A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex6UI", "Ex6UI\Ex6UI.csproj", "{1988E233-4430-4CF9-AD80-7CF3AB48820C}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4264809E-4FAD-4B5C-845B-747070C165E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4264809E-4FAD-4B5C-845B-747070C165E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4264809E-4FAD-4B5C-845B-747070C165E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4264809E-4FAD-4B5C-845B-747070C165E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F1DA689-2C06-4489-B7C3-BC43BA5D339A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F1DA689-2C06-4489-B7C3-BC43BA5D339A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F1DA689-2C06-4489-B7C3-BC43BA5D339A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F1DA689-2C06-4489-B7C3-BC43BA5D339A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1988E233-4430-4CF9-AD80-7CF3AB48820C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1988E233-4430-4CF9-AD80-7CF3AB48820C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1988E233-4430-4CF9-AD80-7CF3AB48820C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1988E233-4430-4CF9-AD80-7CF3AB48820C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
