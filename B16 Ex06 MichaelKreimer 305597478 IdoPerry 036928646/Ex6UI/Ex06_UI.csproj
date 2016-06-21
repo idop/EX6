@@ -51,11 +51,8 @@
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormTest.Designer.cs">
-      <DependentUpon>FormTest.cs</DependentUpon>
+    <Compile Include="FormGame.Designer.cs">
+      <DependentUpon>FormGame.cs</DependentUpon>
     </Compile>
     <Compile Include="GameManager.cs" />
     <Compile Include="MouseFollower.cs">
@@ -85,14 +82,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormGame.resx">
-      <DependentUpon>FormGame.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormGameProperties.resx">
       <DependentUpon>FormGameProperties.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTest.resx">
-      <DependentUpon>FormTest.cs</DependentUpon>
+    <EmbeddedResource Include="FormGame.resx">
+      <DependentUpon>FormGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

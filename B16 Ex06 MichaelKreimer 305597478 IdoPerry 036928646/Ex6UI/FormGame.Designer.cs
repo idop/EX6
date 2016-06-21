@@ -1,6 +1,6 @@
 ﻿namespace Ex06_UI
 {
-    partial class FormTest
+    partial class FormGame
     {
         /// <summary>
         /// Required designer variable.
