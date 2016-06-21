@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoardButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BoardTile.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,7 +103,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Resources\GameOverPic.jpg" />
   </ItemGroup>
   <ItemGroup>

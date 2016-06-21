@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTest));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startANewGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,11 +43,9 @@
             this.toolStripStatusLabelCurrentPlayer = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelScore = new System.Windows.Forms.ToolStripStatusLabel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.boardTile1 = new Ex06_UI.BoardTile();
+            this.panelGameBoard = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -59,7 +56,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(851, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(852, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -144,7 +141,7 @@
             this.toolStripStatusLabelScore});
             this.statusStrip1.Location = new System.Drawing.Point(0, 647);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(851, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(852, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
@@ -168,35 +165,25 @@
             this.toolStripStatusLabelScore.Name = "toolStripStatusLabelScore";
             this.toolStripStatusLabelScore.Size = new System.Drawing.Size(0, 17);
             // 
-            // panel1
+            // panelGameBoard
             // 
-            this.panel1.BackColor = System.Drawing.Color.Thistle;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.boardTile1);
-            this.panel1.Location = new System.Drawing.Point(24, 53);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 569);
-            this.panel1.TabIndex = 2;
-            // 
-            // boardTile1
-            // 
-            this.boardTile1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("boardTile1.BackgroundImage")));
-            this.boardTile1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.boardTile1.Location = new System.Drawing.Point(0, 0);
-            this.boardTile1.Margin = new System.Windows.Forms.Padding(0);
-            this.boardTile1.Name = "boardTile1";
-            this.boardTile1.Size = new System.Drawing.Size(67, 67);
-            this.boardTile1.TabIndex = 0;
+            this.panelGameBoard.BackColor = System.Drawing.Color.Thistle;
+            this.panelGameBoard.ForeColor = System.Drawing.Color.Thistle;
+            this.panelGameBoard.Location = new System.Drawing.Point(20, 48);
+            this.panelGameBoard.Margin = new System.Windows.Forms.Padding(0);
+            this.panelGameBoard.Name = "panelGameBoard";
+            this.panelGameBoard.Size = new System.Drawing.Size(810, 580);
+            this.panelGameBoard.TabIndex = 2;
             // 
             // FormTest
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(851, 669);
+            this.ClientSize = new System.Drawing.Size(852, 669);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelGameBoard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormTest";
@@ -205,7 +192,6 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +214,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCurrentPlayer;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelScore;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Panel panel1;
-        private BoardTile boardTile1;
+        private System.Windows.Forms.Panel panelGameBoard;
     }
 }
