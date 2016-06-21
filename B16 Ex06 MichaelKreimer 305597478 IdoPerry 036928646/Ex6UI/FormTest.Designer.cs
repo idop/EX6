@@ -145,28 +145,36 @@
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.UseWaitCursor = true;
             // 
             // toolStripStatusLabelCurrentPlayer
             // 
-            this.toolStripStatusLabelCurrentPlayer.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.toolStripStatusLabelCurrentPlayer.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.toolStripStatusLabelCurrentPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.toolStripStatusLabelCurrentPlayer.BorderStyle = System.Windows.Forms.Border3DStyle.Bump;
+            this.toolStripStatusLabelCurrentPlayer.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStatusLabelCurrentPlayer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripStatusLabelCurrentPlayer.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripStatusLabelCurrentPlayer.Name = "toolStripStatusLabelCurrentPlayer";
-            this.toolStripStatusLabelCurrentPlayer.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabelCurrentPlayer.Size = new System.Drawing.Size(0, 19);
             // 
             // toolStripStatusLabel1
             // 
+            this.toolStripStatusLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(72, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(72, 19);
             this.toolStripStatusLabel1.Text = "                ";
             // 
             // toolStripStatusLabelScore
             // 
-            this.toolStripStatusLabelScore.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.toolStripStatusLabelScore.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStripStatusLabelScore.Name = "toolStripStatusLabelScore";
-            this.toolStripStatusLabelScore.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabelScore.Size = new System.Drawing.Size(0, 19);
             // 
             // panelGameBoard
             // 
+            this.panelGameBoard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelGameBoard.BackColor = System.Drawing.Color.Thistle;
             this.panelGameBoard.ForeColor = System.Drawing.Color.Thistle;
             this.panelGameBoard.Location = new System.Drawing.Point(20, 48);
@@ -181,12 +189,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(852, 669);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panelGameBoard);
+            this.Controls.Add(this.statusStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormTest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormTest";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

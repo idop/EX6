@@ -53,8 +53,8 @@ namespace Ex06_UI
         {
             panelGameBoard.Width = r_GamePieceSize.Width * (m_NumberOfRows) ;
             panelGameBoard.Height = r_GamePieceSize.Height * (m_NumberOfColumns + 1);
-            this.Width = panelGameBoard.Width + k_Margin * 3;
-            this.Height = panelGameBoard.Height + k_Margin * 4 + menuStrip1.Height + statusStrip1.Height;
+            this.Width = panelGameBoard.Width + k_Margin * 2 ;
+            this.Height = panelGameBoard.Height + k_Margin * 3 + menuStrip1.Height + statusStrip1.Height;
             initGameBoardButtons();
             initGameBoard();
         }
@@ -95,7 +95,7 @@ namespace Ex06_UI
         {
             setCurrentPlayerStatusStripText(m_PlayersInfo[m_TurnNumber % 2].Name);
             toolStripStatusLabelScore.Text = string.Format("{0}: {1}, {2}: {3}",
-                m_PlayersInfo[0].Name, m_PlayersInfo[0].Score, m_PlayersInfo[1].Name, m_PlayersInfo[1].Score);
+            m_PlayersInfo[0].Name, m_PlayersInfo[0].Score, m_PlayersInfo[1].Name, m_PlayersInfo[1].Score);
         }
 
         private void setCurrentPlayerStatusStripText(string i_PlayerName)
