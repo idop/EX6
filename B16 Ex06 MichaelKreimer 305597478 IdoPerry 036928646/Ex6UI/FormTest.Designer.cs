@@ -155,20 +155,20 @@
             this.toolStripStatusLabelCurrentPlayer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStripStatusLabelCurrentPlayer.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.toolStripStatusLabelCurrentPlayer.Name = "toolStripStatusLabelCurrentPlayer";
-            this.toolStripStatusLabelCurrentPlayer.Size = new System.Drawing.Size(0, 19);
+            this.toolStripStatusLabelCurrentPlayer.Size = new System.Drawing.Size(0, 17);
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(72, 19);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(72, 17);
             this.toolStripStatusLabel1.Text = "                ";
             // 
             // toolStripStatusLabelScore
             // 
             this.toolStripStatusLabelScore.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStripStatusLabelScore.Name = "toolStripStatusLabelScore";
-            this.toolStripStatusLabelScore.Size = new System.Drawing.Size(0, 19);
+            this.toolStripStatusLabelScore.Size = new System.Drawing.Size(0, 17);
             // 
             // panelGameBoard
             // 
@@ -197,6 +197,7 @@
             this.Name = "FormTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormTest";
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormTest_MouseMove);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

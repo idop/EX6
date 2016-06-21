@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Ex06_GameLogic;
 using Ex06_GameUtils;
+using Ex06_UI.Properties;
 
 namespace Ex06_UI
 {
@@ -21,10 +22,12 @@ namespace Ex06_UI
         private int m_TurnNumber = 0;
         private BoardTile[,] m_UIGameBoard;
         private BoardButton[] m_UIGameBoardButtons;
+        private MouseFollower m_MouseFollower;
 
         public FormTest()
         {
             r_GamePieceSize = new BoardTile().Size;
+            m_MouseFollower = new MouseFollower(Resources.CoinRed);
             InitializeComponent();
         }
 
@@ -57,6 +60,9 @@ namespace Ex06_UI
             this.Height = panelGameBoard.Height + k_Margin * 3 + menuStrip1.Height + statusStrip1.Height;
             initGameBoardButtons();
             initGameBoard();
+            m_MouseFollower.Location = Cursor.Position;
+            this.Controls.Add(m_MouseFollower);
+            m_MouseFollower.BringToFront();
         }
 
         private void initGameBoard()
@@ -83,8 +89,6 @@ namespace Ex06_UI
                 m_UIGameBoardButtons[i] = new BoardButton();
                 m_UIGameBoardButtons[i].Top = panelGameBoard.Top;
                 m_UIGameBoardButtons[i].Left = panelGameBoard.Left + i * m_UIGameBoardButtons[i].Width;
-                m_UIGameBoardButtons[i].MouseLeave += new EventHandler(this.BoardButton_MouseLeave);
-                m_UIGameBoardButtons[i].MouseHover += new EventHandler(this.BoardButton_MouseHover);
                 m_UIGameBoardButtons[i].Click += new EventHandler(this.BoardButton_Click);
                 this.Controls.Add(m_UIGameBoardButtons[i]);
                 m_UIGameBoardButtons[i].BringToFront();
@@ -138,19 +142,15 @@ namespace Ex06_UI
             //TODO
         }
 
-        private void BoardButton_MouseHover(object sender, EventArgs e)
-        {
-            ((BoardButton)sender).ForeColor = Color.Plum;
-        }
-
-        private void BoardButton_MouseLeave(object sender, EventArgs e)
-        {
-            ((BoardButton)sender).ForeColor = Color.Thistle;
-        }
-
         private void BoardButton_Click(object sender, EventArgs e)
         {
             //TODO
+        }
+
+        private void FormTest_MouseMove(object sender, MouseEventArgs e)
+        {
+            m_MouseFollower.Location = new Point(e.X, e.Y);
+            m_MouseFollower.BringToFront();
         }
     }
 }
