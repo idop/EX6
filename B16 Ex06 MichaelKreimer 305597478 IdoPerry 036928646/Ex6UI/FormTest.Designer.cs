@@ -1,4 +1,4 @@
-﻿namespace Ex6UI
+﻿namespace Ex06_UI
 {
     partial class FormTest
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTest));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startANewGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,10 +42,13 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCurrentPlayer = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelScore = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.boardTile1 = new Ex06_UI.BoardTile();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -88,6 +92,7 @@
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
             this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.propertiesToolStripMenuItem.Text = "Properties...";
+            this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -114,60 +119,85 @@
             // howToPlayToolStripMenuItem
             // 
             this.howToPlayToolStripMenuItem.Name = "howToPlayToolStripMenuItem";
-            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.howToPlayToolStripMenuItem.Text = "How to play?";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(169, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip1.GripMargin = new System.Windows.Forms.Padding(4);
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelCurrentPlayer,
-            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel1,
             this.toolStripStatusLabelScore});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 644);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 647);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(851, 25);
+            this.statusStrip1.Size = new System.Drawing.Size(851, 22);
+            this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.UseWaitCursor = true;
             // 
             // toolStripStatusLabelCurrentPlayer
             // 
+            this.toolStripStatusLabelCurrentPlayer.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.toolStripStatusLabelCurrentPlayer.Name = "toolStripStatusLabelCurrentPlayer";
-            this.toolStripStatusLabelCurrentPlayer.Size = new System.Drawing.Size(21, 20);
-            this.toolStripStatusLabelCurrentPlayer.Text = "   ";
+            this.toolStripStatusLabelCurrentPlayer.Size = new System.Drawing.Size(0, 17);
             // 
-            // toolStripStatusLabel2
+            // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(93, 20);
-            this.toolStripStatusLabel2.Text = "                     ";
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(72, 17);
+            this.toolStripStatusLabel1.Text = "                ";
             // 
             // toolStripStatusLabelScore
             // 
+            this.toolStripStatusLabelScore.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.toolStripStatusLabelScore.Name = "toolStripStatusLabelScore";
-            this.toolStripStatusLabelScore.Size = new System.Drawing.Size(29, 20);
-            this.toolStripStatusLabelScore.Text = "     ";
+            this.toolStripStatusLabelScore.Size = new System.Drawing.Size(0, 17);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Thistle;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.boardTile1);
+            this.panel1.Location = new System.Drawing.Point(24, 53);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(803, 569);
+            this.panel1.TabIndex = 2;
+            // 
+            // boardTile1
+            // 
+            this.boardTile1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("boardTile1.BackgroundImage")));
+            this.boardTile1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.boardTile1.Location = new System.Drawing.Point(0, 0);
+            this.boardTile1.Margin = new System.Windows.Forms.Padding(0);
+            this.boardTile1.Name = "boardTile1";
+            this.boardTile1.Size = new System.Drawing.Size(67, 67);
+            this.boardTile1.TabIndex = 0;
             // 
             // FormTest
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(851, 669);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormTest";
             this.Text = "FormTest";
@@ -175,6 +205,7 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,7 +226,9 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCurrentPlayer;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelScore;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Panel panel1;
+        private BoardTile boardTile1;
     }
 }

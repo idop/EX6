@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Ex6UI
+namespace Ex06_UI
 {
     public partial class FormGameProperties : Form
     {
@@ -39,7 +39,7 @@ namespace Ex6UI
             }
         }
 
-        public int Cols
+        public int Coloumns
         {
             get
             {
@@ -56,7 +56,7 @@ namespace Ex6UI
 
         private void checkLegalSettings()
         {
-            if (!isLegalSize(Rows) || !isLegalSize(Cols))
+            if (!isLegalSize(Rows) || !isLegalSize(Coloumns))
             {
                 throw new ArgumentOutOfRangeException();
             }

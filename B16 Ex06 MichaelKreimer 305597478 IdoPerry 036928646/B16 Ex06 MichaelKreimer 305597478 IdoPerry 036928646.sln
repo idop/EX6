@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex6GameLogic", "Ex6GameLogic\Ex6GameLogic.csproj", "{4264809E-4FAD-4B5C-845B-747070C165E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex06_GameLogic", "Ex6GameLogic\Ex06_GameLogic.csproj", "{4264809E-4FAD-4B5C-845B-747070C165E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex6GameUtils", "Ex6GameUtils\Ex6GameUtils.csproj", "{3F1DA689-2C06-4489-B7C3-BC43BA5D339A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex06_GameUtils", "Ex6GameUtils\Ex06_GameUtils.csproj", "{3F1DA689-2C06-4489-B7C3-BC43BA5D339A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex6UI", "Ex6UI\Ex6UI.csproj", "{1988E233-4430-4CF9-AD80-7CF3AB48820C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex06_UI", "Ex6UI\Ex06_UI.csproj", "{1988E233-4430-4CF9-AD80-7CF3AB48820C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

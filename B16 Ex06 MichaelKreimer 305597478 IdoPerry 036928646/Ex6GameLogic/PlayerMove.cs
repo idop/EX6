@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ex6GameLogic
+namespace Ex06_GameLogic
 {
     public class PlayerMove
     {

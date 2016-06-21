@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3F1DA689-2C06-4489-B7C3-BC43BA5D339A}</ProjectGuid>
+    <ProjectGuid>{4264809E-4FAD-4B5C-845B-747070C165E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ex6GameUtils</RootNamespace>
-    <AssemblyName>Ex6GameUtils</AssemblyName>
+    <RootNamespace>Ex06_GameLogic</RootNamespace>
+    <AssemblyName>Ex06_GameLogic</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,7 +35,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameUtils.cs" />
+    <Compile Include="GameBoard.cs" />
+    <Compile Include="PlayerInfo.cs" />
+    <Compile Include="PlayerMove.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

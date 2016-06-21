@@ -1,4 +1,4 @@
-﻿namespace Ex6UI
+﻿namespace Ex06_UI
 {
     public partial class FormGameProperties
     {

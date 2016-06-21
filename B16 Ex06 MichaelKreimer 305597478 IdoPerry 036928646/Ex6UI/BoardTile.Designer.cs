@@ -1,4 +1,4 @@
-﻿namespace Ex6UI
+﻿namespace Ex06_UI
 {
     partial class BoardTile
     {
@@ -28,35 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxTile = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTile)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBoxTile
-            // 
-            this.pictureBoxTile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBoxTile.Image = global::Ex6UI.Properties.Resources.EmptyCell;
-            this.pictureBoxTile.InitialImage = global::Ex6UI.Properties.Resources.EmptyCell;
-            this.pictureBoxTile.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxTile.Name = "pictureBoxTile";
-            this.pictureBoxTile.Size = new System.Drawing.Size(67, 67);
-            this.pictureBoxTile.TabIndex = 0;
-            this.pictureBoxTile.TabStop = false;
             // 
             // BoardTile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBoxTile);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackgroundImage = global::Ex06_UI.Properties.Resources.EmptyCell;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "BoardTile";
             this.Size = new System.Drawing.Size(67, 67);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTile)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBoxTile;
     }
 }

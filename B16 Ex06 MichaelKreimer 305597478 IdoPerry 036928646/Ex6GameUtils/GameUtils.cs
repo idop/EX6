@@ -1,4 +1,4 @@
-﻿namespace Ex6GameUtils
+﻿namespace Ex06_GameUtils
 {
     public class GameUtils
     {

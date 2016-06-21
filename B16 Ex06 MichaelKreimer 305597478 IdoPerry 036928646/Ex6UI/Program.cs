@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Ex6UI
+namespace Ex06_UI
 {
     public class Program
     {

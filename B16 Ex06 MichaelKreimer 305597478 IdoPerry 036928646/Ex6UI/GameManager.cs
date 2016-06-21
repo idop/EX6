@@ -1,7 +1,7 @@
-﻿using Ex6GameUtils;
-using Ex6GameLogic;
+﻿using Ex06_GameUtils;
+using Ex06_GameLogic;
 
-namespace Ex6UI
+namespace Ex06_UI
 {
     public class GameManager
     {

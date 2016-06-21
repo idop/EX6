@@ -7,8 +7,8 @@
     <ProjectGuid>{1988E233-4430-4CF9-AD80-7CF3AB48820C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ex6UI</RootNamespace>
-    <AssemblyName>Ex6UI</AssemblyName>
+    <RootNamespace>Ex06_UI</RootNamespace>
+    <AssemblyName>Ex06_UI</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Ex6UI.Program</StartupObject>
+    <StartupObject>Ex06_UI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -72,13 +72,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ex6GameLogic\Ex6GameLogic.csproj">
+    <ProjectReference Include="..\Ex6GameLogic\Ex06_GameLogic.csproj">
       <Project>{4264809e-4fad-4b5c-845b-747070c165e6}</Project>
-      <Name>Ex6GameLogic</Name>
+      <Name>Ex06_GameLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ex6GameUtils\Ex6GameUtils.csproj">
+    <ProjectReference Include="..\Ex6GameUtils\Ex06_GameUtils.csproj">
       <Project>{3f1da689-2c06-4489-b7c3-bc43ba5d339a}</Project>
-      <Name>Ex6GameUtils</Name>
+      <Name>Ex06_GameUtils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

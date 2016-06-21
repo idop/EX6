@@ -5,10 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Ex6GameLogic;
-using Ex6GameUtils;
+using Ex06_GameLogic;
+using Ex06_GameUtils;
 
-namespace Ex6UI
+namespace Ex06_UI
 {
     public class FormGame : Form
     {
@@ -47,7 +47,7 @@ namespace Ex6UI
         private void initializeGameSettingsValues()
         {
             m_NumberOfRows = m_FromSettings.Rows;
-            m_NumberOfColumns = m_FromSettings.Cols;
+            m_NumberOfColumns = m_FromSettings.Coloumns;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Width = ((m_NumberOfColumns + 2) * k_Margin) + (k_ColumnSelectButtonWidth * m_NumberOfColumns);
