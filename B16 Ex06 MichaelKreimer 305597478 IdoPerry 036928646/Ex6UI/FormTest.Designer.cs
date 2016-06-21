@@ -77,12 +77,14 @@
             this.startANewGameToolStripMenuItem.Name = "startANewGameToolStripMenuItem";
             this.startANewGameToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.startANewGameToolStripMenuItem.Text = "Start a New Game";
+            this.startANewGameToolStripMenuItem.Click += new System.EventHandler(this.startANewGameToolStripMenuItem_Click);
             // 
             // startANewTournirToolStripMenuItem
             // 
             this.startANewTournirToolStripMenuItem.Name = "startANewTournirToolStripMenuItem";
             this.startANewTournirToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
             this.startANewTournirToolStripMenuItem.Text = "Start a New Tournir";
+            this.startANewTournirToolStripMenuItem.Click += new System.EventHandler(this.startANewTournirToolStripMenuItem_Click);
             // 
             // propertiesToolStripMenuItem
             // 

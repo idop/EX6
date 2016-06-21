@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Text;
@@ -9,7 +8,7 @@ using System.Drawing.Drawing2D;
 
 namespace Ex06_UI
 {
-    public partial class BoardTile : UserControl
+    public class BoardTile : PictureBox
     {
         private int k_ElipsePadding = 4;
         public BoardTile()
@@ -17,10 +16,20 @@ namespace Ex06_UI
             InitializeComponent();
             setControlRegion();
         }
+        
+        private void InitializeComponent()
+        { 
+            this.BackgroundImage = Properties.Resources.EmptyCell;
+            this.BackgroundImageLayout = ImageLayout.Center;
+            this.DoubleBuffered = true;
+            this.Margin = new Padding(0);
+            this.Size = new Size(67, 67);
+            this.ResumeLayout(false);
+
+        }
 
         private void setControlRegion()
         {
-            //TODO
             GraphicsPath path = new GraphicsPath();
             path.AddRectangle(new Rectangle(0, 0, this.Width, this.Height));
             path.AddEllipse(k_ElipsePadding, k_ElipsePadding, this.Width - 2 * k_ElipsePadding, this.Height - 2 * k_ElipsePadding);

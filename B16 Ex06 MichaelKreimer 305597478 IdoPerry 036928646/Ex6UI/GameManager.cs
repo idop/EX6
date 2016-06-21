@@ -6,12 +6,10 @@ namespace Ex06_UI
     public class GameManager
     {
         private GameBoard m_GameBoard;
-        private GameUtils.eGameMode m_GameMode;
         private int m_TurnNumber = 0;
 
-        public GameManager(GameUtils.eGameMode i_GameMode, int i_rows, int i_Columns)
+        public GameManager(int i_rows, int i_Columns)
         {
-            m_GameMode = i_GameMode;
             m_GameBoard = new GameBoard(i_rows, i_Columns);
             m_TurnNumber = 0; 
         }

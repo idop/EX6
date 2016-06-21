@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Ex06_UI
 {
-    public class BoardButton: Button
+    public class BoardButton: UserControl
     {
         public BoardButton()
         {
@@ -14,9 +14,8 @@ namespace Ex06_UI
             this.Margin = new Padding(0);
             this.Size = new Size(67, 67);
             this.BackgroundImageLayout = ImageLayout.None;
-            this.FlatStyle = FlatStyle.Flat;
             this.ForeColor = Color.Thistle;
-            this.UseVisualStyleBackColor = true;
+            this.Enabled = true;
         }
     }
 }

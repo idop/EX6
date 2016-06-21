@@ -26,7 +26,6 @@ namespace Ex06_UI
         private int m_NumberOfColumns;
         private int m_TurnNumber = 0;
         private FormGameProperties m_FromSettings;
-        private GameUtils.eGameMode m_GameMode;
         private GameManager m_GameManager;
 
         public FormGame()
@@ -94,7 +93,7 @@ namespace Ex06_UI
 
         private void initializeGameManager()
         {
-            m_GameManager = new GameManager(m_GameMode, m_NumberOfRows, m_NumberOfColumns);
+            m_GameManager = new GameManager(m_NumberOfRows, m_NumberOfColumns);
         }
 
         private void initializeButtonsBoardPiece()
@@ -173,7 +172,7 @@ namespace Ex06_UI
 
                 if (playerWantsToPlayAgain == DialogResult.No)
                 {
-                    Application.Exit();
+                    this.Close();
                 }
                 else 
                 {

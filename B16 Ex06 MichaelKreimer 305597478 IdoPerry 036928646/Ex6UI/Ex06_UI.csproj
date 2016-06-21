@@ -43,13 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardButton.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="BoardTile.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="BoardTile.Designer.cs">
-      <DependentUpon>BoardTile.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGame.cs">
       <SubType>Form</SubType>
@@ -88,9 +85,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="BoardTile.resx">
-      <DependentUpon>BoardTile.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormGame.resx">
       <DependentUpon>FormGame.cs</DependentUpon>
     </EmbeddedResource>
