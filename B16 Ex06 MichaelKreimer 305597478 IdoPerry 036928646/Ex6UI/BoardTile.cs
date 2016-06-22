@@ -9,7 +9,7 @@ using System.Drawing.Drawing2D;
 namespace Ex06_UI
 {
     public class BoardTile : PictureBox
-    {
+    {//
         private int k_ElipsePadding = 4;
         public BoardTile()
         {
