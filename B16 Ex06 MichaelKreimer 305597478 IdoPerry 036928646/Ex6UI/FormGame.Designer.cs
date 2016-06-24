@@ -47,6 +47,7 @@
             this.toolStripStatusLabelScore = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelGameBoard = new System.Windows.Forms.Panel();
             this.timerFall = new System.Windows.Forms.Timer(this.components);
+            this.timerWiningPath = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -121,19 +122,19 @@
             // howToPlayToolStripMenuItem
             // 
             this.howToPlayToolStripMenuItem.Name = "howToPlayToolStripMenuItem";
-            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.howToPlayToolStripMenuItem.Text = "How to play?";
             this.howToPlayToolStripMenuItem.Click += new System.EventHandler(this.howToPlayToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(178, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(169, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -168,8 +169,8 @@
             // 
             this.toolStripStatusLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(72, 17);
-            this.toolStripStatusLabel1.Text = "                ";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(36, 17);
+            this.toolStripStatusLabel1.Text = "       ";
             // 
             // toolStripStatusLabelScore
             // 
@@ -193,6 +194,10 @@
             // timerFall
             // 
             this.timerFall.Tick += new System.EventHandler(this.timerFall_Tick);
+            // 
+            // timerWiningPath
+            // 
+            this.timerWiningPath.Tick += new System.EventHandler(this.timerWiningPath_Tick);
             // 
             // FormGame
             // 
@@ -237,5 +242,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Panel panelGameBoard;
         private System.Windows.Forms.Timer timerFall;
+        private System.Windows.Forms.Timer timerWiningPath;
     }
 }

@@ -103,9 +103,29 @@ namespace Ex06_UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FullCellRedHighLight {
+            get {
+                object obj = ResourceManager.GetObject("FullCellRedHighLight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FullCellYellow {
             get {
                 object obj = ResourceManager.GetObject("FullCellYellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FullCellYellowHighlight {
+            get {
+                object obj = ResourceManager.GetObject("FullCellYellowHighlight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

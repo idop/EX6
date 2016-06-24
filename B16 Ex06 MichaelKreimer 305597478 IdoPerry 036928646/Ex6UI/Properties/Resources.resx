@@ -130,8 +130,14 @@
   <data name="FullCellRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FullCellRed.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FullCellRedHighLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FullCellRedHighLight.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="FullCellYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FullCellYellow.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FullCellYellowHighlight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FullCellYellowHighlight.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GameOverPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GameOverPic.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

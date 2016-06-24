@@ -17,5 +17,10 @@ Another Round?";
         public const string k_MessageTie =
 @"Tie!!
 Another Round?";
+
+        public static string k_MessageStartNewGame = "Start a new game?";
+        public static string k_MessageSChangesWillEffectNextGame =
+@"New game properties will take effect
+on the next game";
     }
 }

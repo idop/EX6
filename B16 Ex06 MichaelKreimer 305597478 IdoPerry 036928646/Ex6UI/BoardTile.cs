@@ -25,7 +25,7 @@ namespace Ex06_UI
             this.DoubleBuffered = true;
             this.Margin = new Padding(0);
             this.Size = new Size(67, 67);
-            this.ResumeLayout(false);
+            this.Enabled = false;
         }
 
         private void setControlRegion()

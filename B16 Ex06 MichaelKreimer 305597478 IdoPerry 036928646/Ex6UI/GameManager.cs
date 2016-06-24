@@ -1,5 +1,7 @@
 ﻿using Ex06_GameUtils;
 using Ex06_GameLogic;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace Ex06_UI
 {
@@ -13,13 +15,8 @@ namespace Ex06_UI
             m_GameBoard = new GameBoard(i_rows, i_Columns);
             m_TurnNumber = 0; 
         }
-
-        public void ResetGameBoard()
-        {
-            m_GameBoard.ClearBoard();
-        }
      
-        public PlayerMove PlayHumanTurn(int i_NextMove)
+        public PlayerMove PlayTurn(int i_NextMove)
         {
             GameBoard.eBoardSquare playerSquare = m_TurnNumber % 2 == 0 ? GameBoard.eBoardSquare.Player1Square : GameBoard.eBoardSquare.Player2Square;
             --i_NextMove;
@@ -32,10 +29,12 @@ namespace Ex06_UI
             return m_GameBoard.IsColumnFull(i_selectedColumn);
         }
 
-        public void ResetGame()
+        public IList<Point> FourInARowWiningPath
         {
-            m_TurnNumber = 0;
-            m_GameBoard.ClearBoard();
+            get
+            {
+                return m_GameBoard.FourInARowWiningPath;
+            }
         }
     }
 }

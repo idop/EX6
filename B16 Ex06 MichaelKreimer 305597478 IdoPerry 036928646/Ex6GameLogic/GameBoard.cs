@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace Ex06_GameLogic
 {
     public class GameBoard 
     {
         private const int k_NumberOfSquaresInARowNeededForVictory = 4;
+        private List<Point> m_FourInARowPath;
 
         public enum eBoardSquare : byte
         {
@@ -48,12 +51,12 @@ namespace Ex06_GameLogic
             }
         }
 
-        public GameBoard(int[] i_CurrentEmptyRowInColumn, eBoardSquare[,] i_GameBoardSquare, int i_NumberOfEmptySquares, eBoardStatus i_BoardStatus)
+        public IList<Point> FourInARowWiningPath
         {
-            m_CurrentEmptyRowInColumn = i_CurrentEmptyRowInColumn;
-            m_GameBoard = i_GameBoardSquare;
-            m_NumberOfEmptySquares = i_NumberOfEmptySquares;
-            m_BoardStatus = i_BoardStatus;
+            get
+            {
+                return this.m_FourInARowPath.AsReadOnly();
+            }
         }
 
         public eBoardStatus BoardStatus
@@ -129,14 +132,17 @@ namespace Ex06_GameLogic
         {
             bool playerWon = false;
             int maxNumberofSquaresInARow = 1;
+            initFourInARowPath(i_LastInstertedRow, i_LastInsertedColumn);
             for (int i = i_LastInstertedRow + 1; i < Rows && !playerWon; ++i)
             {
                 if (m_GameBoard[i, i_LastInsertedColumn] == currentPlayerSquare)
                 {
                     ++maxNumberofSquaresInARow;
+                    m_FourInARowPath.Add(new Point(i, i_LastInsertedColumn));
                 }
                 else
                 {
+                    m_FourInARowPath = null;
                     break;
                 }
 
@@ -153,15 +159,18 @@ namespace Ex06_GameLogic
         {
             bool playerWon = false;
             int maxNumberofSquaresInARow = 0;
+            initFourInARowPath(i_LastInstertedRow, i_LastInsertedColumn);
             for (int i = 0; i < Columns && !playerWon; ++i)
             {
                 if (m_GameBoard[i_LastInstertedRow, i] == currentPlayerSquare)
                 {
+                    m_FourInARowPath.Add(new Point(i_LastInstertedRow, i));
                     ++maxNumberofSquaresInARow;
                 }
                 else
                 {
-                    maxNumberofSquaresInARow = 0;
+                    m_FourInARowPath = null;
+                    break;
                 }
 
                 if (maxNumberofSquaresInARow == k_NumberOfSquaresInARowNeededForVictory)
@@ -171,6 +180,12 @@ namespace Ex06_GameLogic
             }
 
             return playerWon;
+        }
+
+        private void initFourInARowPath(int i_LastInstertedRow, int i_LastInsertedColumn)
+        {
+            m_FourInARowPath = new List<Point>();
+            m_FourInARowPath.Add(new Point(i_LastInstertedRow, i_LastInsertedColumn));
         }
 
         private bool checkCurrentDiagonals(int i_LastInstertedRow, int i_LastInsertedColumn, eBoardSquare currentPlayerSquare)
@@ -191,12 +206,13 @@ namespace Ex06_GameLogic
             int maxNumberofSquaresInARow = 1;
             int diagonalRowIndex = i_LastInstertedRow + 1;
             int diagonalColumnIndex = i_LastInsertedColumn - 1;
-
+            initFourInARowPath(i_LastInstertedRow, i_LastInsertedColumn);
             while (diagonalRowIndex < Rows && diagonalColumnIndex >= 0 && !playerWon && isSameSquare)
             {
                 if (m_GameBoard[diagonalRowIndex, diagonalColumnIndex] == currentPlayerSquare)
                 {
                     ++maxNumberofSquaresInARow;
+                    m_FourInARowPath.Add(new Point(diagonalRowIndex, diagonalColumnIndex));
                 }
                 else
                 {
@@ -220,10 +236,12 @@ namespace Ex06_GameLogic
                 if (m_GameBoard[diagonalRowIndex, diagonalColumnIndex] == currentPlayerSquare)
                 {
                     ++maxNumberofSquaresInARow;
+                    m_FourInARowPath.Add(new Point(diagonalRowIndex, diagonalColumnIndex));
                 }
                 else
                 {
                     isSameSquare = false;
+                    m_FourInARowPath = null;
                 }
 
                 if (maxNumberofSquaresInARow == k_NumberOfSquaresInARowNeededForVictory)
@@ -244,12 +262,13 @@ namespace Ex06_GameLogic
             int maxNumberofSquaresInARow = 1;
             int diagonalRowIndex = i_LastInstertedRow + 1;
             int diagonalColumnIndex = i_LastInsertedColumn + 1;
-
+            initFourInARowPath(i_LastInstertedRow, i_LastInsertedColumn);
             while (diagonalRowIndex < Rows && diagonalColumnIndex < Columns && !playerWon && isSameSquare)
             {
                 if (m_GameBoard[diagonalRowIndex, diagonalColumnIndex] == currentPlayerSquare)
                 {
                     ++maxNumberofSquaresInARow;
+                    m_FourInARowPath.Add(new Point(diagonalRowIndex, diagonalColumnIndex));
                 }
                 else
                 {
@@ -273,10 +292,12 @@ namespace Ex06_GameLogic
                 if (m_GameBoard[diagonalRowIndex, diagonalColumnIndex] == currentPlayerSquare)
                 {
                     ++maxNumberofSquaresInARow;
+                    m_FourInARowPath.Add(new Point(diagonalRowIndex, diagonalColumnIndex));
                 }
                 else
                 {
                     isSameSquare = false;
+                    m_FourInARowPath = null;
                 }
 
                 if (maxNumberofSquaresInARow == k_NumberOfSquaresInARowNeededForVictory)
