@@ -24,7 +24,7 @@ namespace Ex06_UI
             GameBoard.eBoardSquare playerSquare = m_TurnNumber % 2 == 0 ? GameBoard.eBoardSquare.Player1Square : GameBoard.eBoardSquare.Player2Square;
             --i_NextMove;
             m_TurnNumber++;
-            return new PlayerMove(m_GameBoard.SetColumnSquare(i_NextMove, playerSquare), i_NextMove, playerSquare, m_GameBoard.BoardStatus);
+            return new PlayerMove(m_GameBoard.SetColumnSquare(i_NextMove, playerSquare), i_NextMove, m_GameBoard.BoardStatus);
         }
 
         public bool IsColumnFull(int i_selectedColumn)

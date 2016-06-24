@@ -47,33 +47,10 @@ namespace Ex06_UI
             }
         }
 
-      
         private void ButtonStart_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void checkLegalSettings()
-        {
-            if (!isLegalSize(Rows) || !isLegalSize(Coloumns))
-            {
-                throw new ArgumentOutOfRangeException();
-            }
-            else if (!isLegalNames())
-            {
-                throw new ArgumentException();
-            }
-        }
-
-        private bool isLegalSize(int num)
-        {
-            return num >= 4 && num <= 10;
-        }
-
-        private bool isLegalNames()
-        {
-            return Player1Name != null && Player2Name != null && Player1Name != Player2Name;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

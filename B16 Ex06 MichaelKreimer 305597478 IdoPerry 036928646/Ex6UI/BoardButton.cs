@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Ex06_UI
 {
-    public class BoardButton: UserControl
+    public class BoardButton : UserControl
     {
         public BoardButton()
         {

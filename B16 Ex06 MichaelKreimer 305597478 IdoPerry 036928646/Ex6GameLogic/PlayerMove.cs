@@ -8,14 +8,12 @@ namespace Ex06_GameLogic
     {
         private int m_SelectedRow;
         private int m_SelectedColumn;
-        private char m_PlayerSquareSymbol;
         private GameBoard.eBoardStatus m_GameStatus;
 
-        public PlayerMove(int i_SelectedRow, int i_SelectedColumn, GameBoard.eBoardSquare i_PlayerSquare, GameBoard.eBoardStatus i_GameStatus)
+        public PlayerMove(int i_SelectedRow, int i_SelectedColumn, GameBoard.eBoardStatus i_GameStatus)
         {
             m_SelectedRow = i_SelectedRow;
             m_SelectedColumn = i_SelectedColumn;
-            m_PlayerSquareSymbol = (char) i_PlayerSquare;
             m_GameStatus = i_GameStatus;
         }
 
@@ -40,14 +38,6 @@ namespace Ex06_GameLogic
             get
             {
                 return m_SelectedColumn;
-            }
-        }
-
-        public char SquareSymbol
-        {
-            get
-            {
-                return m_PlayerSquareSymbol;
             }
         }
     }

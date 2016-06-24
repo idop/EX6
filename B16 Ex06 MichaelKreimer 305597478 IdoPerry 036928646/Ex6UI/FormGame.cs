@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.IO;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Ex06_GameLogic;
 using Ex06_GameUtils;
@@ -13,8 +10,8 @@ namespace Ex06_UI
 {
     public partial class FormGame : Form
     {
-        private readonly Size r_GamePieceSize;
         private const int k_Margin = 20;
+        private readonly Size r_GamePieceSize;
         private FormGameProperties m_GameProperties;
         private PlayerInfo[] m_PlayersInfo;
         private int m_NumberOfRows;
@@ -24,6 +21,7 @@ namespace Ex06_UI
         private BoardButton[] m_UIGameBoardButtons;
         private MouseFollower m_MouseFollower;
         private GameManager m_GameManager;
+        private FormHowToPlay m_FormHowToPlay;
 
         public FormGame()
         {
@@ -43,24 +41,30 @@ namespace Ex06_UI
             else
             {
                 saveGameProperties();
+                initFormHowToPlay();
                 initGame();
             }
+        }
+
+        private void initFormHowToPlay()
+        {
+            m_FormHowToPlay = new FormHowToPlay();
+            m_FormHowToPlay.Lines = File.ReadAllLines(GameUtils.k_HowToPlayFileLocation);
         }
 
         private void initGame()
         {
             initializeStatusStrip();
             m_TurnNumber = 0;
-            panelGameBoard.Width = r_GamePieceSize.Width * (m_NumberOfRows);
+            panelGameBoard.Width = r_GamePieceSize.Width * m_NumberOfRows;
             panelGameBoard.Height = r_GamePieceSize.Height * (m_NumberOfColumns + 1);
-            this.Width = panelGameBoard.Width + k_Margin * 2;
-            this.Height = panelGameBoard.Height + k_Margin * 4 + menuStrip1.Height + statusStrip1.Height;
+            this.Width = panelGameBoard.Width + (k_Margin * 2);
+            this.Height = panelGameBoard.Height + (k_Margin * 4) + menuStrip1.Height + statusStrip1.Height;
             m_GameManager = new GameManager(m_NumberOfRows, m_NumberOfColumns);
             initGameBoardButtons();
             initGameBoard();
             initMouseFollower();
         }
-
 
         private void initMouseFollower()
         {
@@ -72,14 +76,14 @@ namespace Ex06_UI
 
         private void initGameBoard()
         {
-            m_UIGameBoard = new BoardTile[m_NumberOfRows,m_NumberOfColumns];
+            m_UIGameBoard = new BoardTile[m_NumberOfRows, m_NumberOfColumns];
             for (int i = m_NumberOfRows - 1; i >= 0; --i)
             {
                 for (int j = m_NumberOfColumns - 1; j >= 0; --j)
                 {
                     m_UIGameBoard[i, j] = new BoardTile();
-                    m_UIGameBoard[i, j].Top = panelGameBoard.Top + (m_UIGameBoard[i, j].Height * (i+1));
-                    m_UIGameBoard[i, j].Left = panelGameBoard.Left + (m_UIGameBoard[i, j].Width *j);
+                    m_UIGameBoard[i, j].Top = panelGameBoard.Top + (m_UIGameBoard[i, j].Height * (i + 1));
+                    m_UIGameBoard[i, j].Left = panelGameBoard.Left + (m_UIGameBoard[i, j].Width * j);
                     this.Controls.Add(m_UIGameBoard[i, j]);
                     m_UIGameBoard[i, j].BringToFront();
                 }
@@ -93,8 +97,8 @@ namespace Ex06_UI
             {
                 m_UIGameBoardButtons[i] = new BoardButton();
                 m_UIGameBoardButtons[i].Top = panelGameBoard.Top;
-                m_UIGameBoardButtons[i].Left = panelGameBoard.Left + i * m_UIGameBoardButtons[i].Width;
-                m_UIGameBoardButtons[i].Text = (i+1).ToString();
+                m_UIGameBoardButtons[i].Left = panelGameBoard.Left + (i * m_UIGameBoardButtons[i].Width);
+                m_UIGameBoardButtons[i].Text = (i + 1).ToString();
                 m_UIGameBoardButtons[i].Click += new EventHandler(this.BoardButton_Click);
                 this.Controls.Add(m_UIGameBoardButtons[i]);
                 m_UIGameBoardButtons[i].BringToFront();
@@ -103,14 +107,18 @@ namespace Ex06_UI
 
         private void initializeStatusStrip()
         {
-            setCurrentPlayerStatusStripText(m_PlayersInfo[m_TurnNumber % 2].Name);
+            setCurrentPlayerStatusStripText(m_PlayersInfo[m_TurnNumber % GameUtils.k_NumberOfPlayers].Name);
             updateStatusStripScore();
         }
 
         private void updateStatusStripScore()
         {
-            toolStripStatusLabelScore.Text = string.Format("{0}: {1}, {2}: {3}",
-                        m_PlayersInfo[0].Name, m_PlayersInfo[0].Score, m_PlayersInfo[1].Name, m_PlayersInfo[1].Score);
+            toolStripStatusLabelScore.Text = string.Format(
+"{0}: {1}, {2}: {3}",
+m_PlayersInfo[GameUtils.k_FirstPlayerIndex].Name, 
+m_PlayersInfo[GameUtils.k_FirstPlayerIndex].Score, 
+m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Name, 
+m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
         }
 
         private void setCurrentPlayerStatusStripText(string i_PlayerName)
@@ -129,17 +137,16 @@ namespace Ex06_UI
             }
             else
             {
-                m_PlayersInfo[0].Name = m_GameProperties.Player1Name;
-                m_PlayersInfo[1].Name = m_GameProperties.Player2Name;
+                m_PlayersInfo[GameUtils.k_FirstPlayerIndex].Name = m_GameProperties.Player1Name;
+                m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Name = m_GameProperties.Player2Name;
             }
-
         }
 
         private void initNewGamePlayers()
         {
-            m_PlayersInfo = new PlayerInfo[2];
-            m_PlayersInfo[0] = new PlayerInfo(m_GameProperties.Player1Name);
-            m_PlayersInfo[1] = new PlayerInfo(m_GameProperties.Player2Name);
+            m_PlayersInfo = new PlayerInfo[GameUtils.k_NumberOfPlayers];
+            m_PlayersInfo[GameUtils.k_FirstPlayerIndex] = new PlayerInfo(m_GameProperties.Player1Name);
+            m_PlayersInfo[GameUtils.k_SecondPlayerIndex] = new PlayerInfo(m_GameProperties.Player2Name);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -174,7 +181,7 @@ namespace Ex06_UI
             checkBoardStatus(i_PlayerMove.GameStatus);
             m_TurnNumber++;
             disposeMouseFollower();
-            setCurrentPlayerStatusStripText(m_PlayersInfo[m_TurnNumber % 2].Name);
+            setCurrentPlayerStatusStripText(m_PlayersInfo[m_TurnNumber % GameUtils.k_NumberOfPlayers].Name);
         }
 
         private void disposeMouseFollower()
@@ -191,13 +198,12 @@ namespace Ex06_UI
                 DialogResult playerWantsToPlayAgain;
                 if (i_gameStatus == GameBoard.eBoardStatus.PlayerWon)
                 {
-                    int playerNumber = m_TurnNumber % 2;
+                    int playerNumber = m_TurnNumber % GameUtils.k_NumberOfPlayers;
                     string playerWonMessage = string.Format(GameTexts.k_MessageWin, m_PlayersInfo[playerNumber].Name);
                     playerWantsToPlayAgain = openMessageBox(playerWonMessage, GameTexts.k_MessageBoxTitle);
                     m_PlayersInfo[playerNumber].Score += playerWantsToPlayAgain.Equals(DialogResult.Yes) ? 1 : 0;
                     updateStatusStripScore();
                     this.Refresh();
-                    
                 }
                 else
                 {
@@ -285,8 +291,15 @@ namespace Ex06_UI
 
         private void resetScore()
         {
-            m_PlayersInfo[0].Score = 0;
-            m_PlayersInfo[1].Score = 0;
+            m_PlayersInfo[GameUtils.k_FirstPlayerIndex].Score = 0;
+            m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score = 0;
+        }
+
+        private void howToPlayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_FormHowToPlay.Width = this.Width - k_Margin;
+            m_FormHowToPlay.Height = this.Height - (k_Margin * 5);
+            m_FormHowToPlay.ShowDialog();
         }
     }
 }
