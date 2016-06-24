@@ -67,7 +67,7 @@
       <DependentUpon>FormGame.cs</DependentUpon>
     </Compile>
     <Compile Include="GameManager.cs" />
-    <Compile Include="MouseFollower.cs">
+    <Compile Include="FloatingCoin.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />

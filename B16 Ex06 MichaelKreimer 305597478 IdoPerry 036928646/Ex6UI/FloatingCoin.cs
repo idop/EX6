@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace Ex06_UI
 {
-    public class MouseFollower : PictureBox
+    public class FloatingCoin : PictureBox
     {
-        public MouseFollower(Image i_Image)
+        public FloatingCoin(Image i_Image)
         {
             this.Height = i_Image.Height;
             this.Width = i_Image.Width;

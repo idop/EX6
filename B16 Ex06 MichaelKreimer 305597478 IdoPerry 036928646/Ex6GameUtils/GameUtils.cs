@@ -10,5 +10,6 @@
         public const int k_AboutFormHeightFactorMultiplayer = 12;
         public const int k_AboutFormWidthFactorMultiplayer = 2;
         public const int k_AboutFormWidthFactorAdjustment = 10;
+        public const int k_FallingCoinSpeed = 100;
     }
 }

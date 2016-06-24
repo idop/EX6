@@ -20,10 +20,13 @@ namespace Ex06_UI
         private int m_TurnNumber = 0;
         private BoardTile[,] m_UIGameBoard;
         private BoardButton[] m_UIGameBoardButtons;
-        private MouseFollower m_MouseFollower;
+        private FloatingCoin m_MouseFollower;
         private GameManager m_GameManager;
         private FormHowToPlay m_FormHowToPlay;
         private FormAbout m_FormAbout;
+        private PlayerMove m_LastPlayerMove;
+        private FloatingCoin m_fallingCoin;
+        private BoardButton m_LastCurrentSelectedButton;
 
         public FormGame()
         {
@@ -71,10 +74,13 @@ namespace Ex06_UI
 
         private void initMouseFollower()
         {
-            m_MouseFollower = new MouseFollower(getCurrentPlayerImage());
-            m_MouseFollower.Location = Cursor.Position;
-            this.Controls.Add(m_MouseFollower);
-            m_MouseFollower.BringToFront();
+            if (m_MouseFollower == null)
+            {
+                m_MouseFollower = new FloatingCoin(getCurrentPlayerImage());
+                m_MouseFollower.Location = Cursor.Position;
+                this.Controls.Add(m_MouseFollower);
+                m_MouseFollower.BringToFront();
+            }
         }
 
         private void initGameBoard()
@@ -165,33 +171,48 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
 
         private void BoardButton_Click(object sender, EventArgs e)
         {
-            BoardButton currentSelectedButton = sender as BoardButton;
-            PlayerMove playerMove = m_GameManager.PlayHumanTurn(int.Parse(currentSelectedButton.Text));
-            updateFormWithUserAction(currentSelectedButton, playerMove);
+            m_LastCurrentSelectedButton = sender as BoardButton;
+            m_LastPlayerMove = m_GameManager.PlayHumanTurn(int.Parse(m_LastCurrentSelectedButton.Text));
+            m_LastCurrentSelectedButton.Enabled = false;
+            dropCoin();
         }
 
-        private void updateFormWithUserAction(BoardButton i_CurrentSelectedButton, PlayerMove i_PlayerMove)
+        private void updateFormWithUserAction()
         {
-            m_UIGameBoard[i_PlayerMove.SelectedRow, i_PlayerMove.SelectedColumn].Image = getCurrentPlayerTileImage();
-            m_UIGameBoard[i_PlayerMove.SelectedRow, i_PlayerMove.SelectedColumn].Region = new Region();
-            m_UIGameBoard[i_PlayerMove.SelectedRow, i_PlayerMove.SelectedColumn].BringToFront();
+            m_UIGameBoard[m_LastPlayerMove.SelectedRow, m_LastPlayerMove.SelectedColumn].Image = getCurrentPlayerTileImage();
+            m_UIGameBoard[m_LastPlayerMove.SelectedRow, m_LastPlayerMove.SelectedColumn].Region = new Region();
+            m_UIGameBoard[m_LastPlayerMove.SelectedRow, m_LastPlayerMove.SelectedColumn].BringToFront();
             this.Refresh();
-            if (m_GameManager.IsColumnFull(i_PlayerMove.SelectedColumn))
+            if (m_GameManager.IsColumnFull(m_LastPlayerMove.SelectedColumn))
             {
-                i_CurrentSelectedButton.Enabled = false;
+                m_LastCurrentSelectedButton.Enabled = false;
             }
 
-            checkBoardStatus(i_PlayerMove.GameStatus);
             m_TurnNumber++;
-            disposeMouseFollower();
+            checkBoardStatus(m_LastPlayerMove.GameStatus);
+            initMouseFollower();
             setCurrentPlayerStatusStripText(m_PlayersInfo[m_TurnNumber % GameUtils.k_NumberOfPlayers].Name);
+            m_LastCurrentSelectedButton.Enabled = true;
+        }
+
+        private void dropCoin()
+        {
+            m_fallingCoin = new FloatingCoin(getCurrentPlayerImage());
+            m_fallingCoin.Location = m_LastCurrentSelectedButton.Location;
+            disposeMouseFollower();
+            this.Controls.Add(m_fallingCoin);
+            m_fallingCoin.BringToFront();
+            timerFall.Start();       
         }
 
         private void disposeMouseFollower()
         {
-            this.Controls.Remove(m_MouseFollower);
-            m_MouseFollower.Dispose();
-            initMouseFollower();
+            if (m_MouseFollower != null)
+            {
+                this.Controls.Remove(m_MouseFollower);
+                m_MouseFollower.Dispose();
+                m_MouseFollower = null;
+            }
         }
 
         private void checkBoardStatus(GameBoard.eBoardStatus i_gameStatus)
@@ -201,7 +222,7 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
                 DialogResult playerWantsToPlayAgain;
                 if (i_gameStatus == GameBoard.eBoardStatus.PlayerWon)
                 {
-                    int playerNumber = m_TurnNumber % GameUtils.k_NumberOfPlayers;
+                    int playerNumber = (m_TurnNumber - 1) % GameUtils.k_NumberOfPlayers;
                     string playerWonMessage = string.Format(GameTexts.k_MessageWin, m_PlayersInfo[playerNumber].Name);
                     playerWantsToPlayAgain = openMessageBox(playerWonMessage, GameTexts.k_MessageBoxTitle);
                     m_PlayersInfo[playerNumber].Score += playerWantsToPlayAgain.Equals(DialogResult.Yes) ? 1 : 0;
@@ -234,7 +255,7 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
         {
             disposeGameBoard();
             disposeGameBoardButtons();
-            disposeMouseFollower(); 
+            disposeMouseFollower();
         }
 
         private void disposeGameBoardButtons()
@@ -267,18 +288,21 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
 
         private Image getCurrentPlayerTileImage()
         {
-            return m_TurnNumber % 2 == 0 ? Resources.FullCellRed : Resources.FullCellYellow;
+            return m_TurnNumber % GameUtils.k_NumberOfPlayers == 0 ? Resources.FullCellRed : Resources.FullCellYellow;
         }
 
         private Image getCurrentPlayerImage()
         {
-            return m_TurnNumber % 2 == 0 ? Resources.CoinRed : Resources.CoinYellow;
+            return m_TurnNumber % GameUtils.k_NumberOfPlayers == 0 ? Resources.CoinRed : Resources.CoinYellow;
         }
 
         private void FormGame_MouseMove(object sender, MouseEventArgs e)
         {
-            m_MouseFollower.Location = e.Location;
-            m_MouseFollower.BringToFront();
+            if (m_MouseFollower != null)
+            {
+                m_MouseFollower.Location = e.Location;
+                m_MouseFollower.BringToFront();
+            }
         }
 
         private void startANewGameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -318,6 +342,22 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
             int widthFactor = (k_Margin * GameUtils.k_AboutFormWidthFactorMultiplayer) - GameUtils.k_AboutFormWidthFactorAdjustment;
             setControlSize(m_FormAbout, widthFactor, heightFactor);
             m_FormAbout.ShowDialog();
+        }
+
+        private void timerFall_Tick(object sender, EventArgs e)
+        {
+            if(m_fallingCoin.Bottom < m_UIGameBoard[m_LastPlayerMove.SelectedRow, m_LastPlayerMove.SelectedColumn].Top)
+            {
+                m_fallingCoin.Top += 50;
+                this.Refresh();
+            }
+            else
+            {
+                this.Controls.Remove(m_fallingCoin);
+                m_fallingCoin.Dispose();
+                timerFall.Stop();
+                updateFormWithUserAction();
+            }
         }
     }
 }

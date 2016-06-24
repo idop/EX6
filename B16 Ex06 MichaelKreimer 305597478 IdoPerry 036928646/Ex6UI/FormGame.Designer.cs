@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startANewGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +46,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelScore = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelGameBoard = new System.Windows.Forms.Panel();
+            this.timerFall = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -188,6 +190,10 @@
             this.panelGameBoard.Size = new System.Drawing.Size(810, 580);
             this.panelGameBoard.TabIndex = 2;
             // 
+            // timerFall
+            // 
+            this.timerFall.Tick += new System.EventHandler(this.timerFall_Tick);
+            // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -230,5 +236,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelScore;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Panel panelGameBoard;
+        private System.Windows.Forms.Timer timerFall;
     }
 }
