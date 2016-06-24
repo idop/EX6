@@ -6,6 +6,7 @@ using Ex06_GameLogic;
 using Ex06_GameUtils;
 using Ex06_UI.Properties;
 
+
 namespace Ex06_UI
 {
     public partial class FormGame : Form
@@ -22,6 +23,7 @@ namespace Ex06_UI
         private MouseFollower m_MouseFollower;
         private GameManager m_GameManager;
         private FormHowToPlay m_FormHowToPlay;
+        private FormAbout m_FormAbout;
 
         public FormGame()
         {
@@ -41,6 +43,7 @@ namespace Ex06_UI
             else
             {
                 saveGameProperties();
+                m_FormAbout = new FormAbout();
                 initFormHowToPlay();
                 initGame();
             }
@@ -272,9 +275,9 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
             return m_TurnNumber % 2 == 0 ? Resources.CoinRed : Resources.CoinYellow;
         }
 
-        private void FormTest_MouseMove(object sender, MouseEventArgs e)
+        private void FormGame_MouseMove(object sender, MouseEventArgs e)
         {
-            m_MouseFollower.Location = new Point(e.X, e.Y);
+            m_MouseFollower.Location = e.Location;
             m_MouseFollower.BringToFront();
         }
 
@@ -297,9 +300,24 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
 
         private void howToPlayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            m_FormHowToPlay.Width = this.Width - k_Margin;
-            m_FormHowToPlay.Height = this.Height - (k_Margin * 5);
+            int heightFactor = k_Margin * GameUtils.k_HowToplayFormHeightFactorMultiplayer;
+            int widthFactor = k_Margin;
+            setControlSize(m_FormHowToPlay, widthFactor, heightFactor);
             m_FormHowToPlay.ShowDialog();
+        }
+
+        private void setControlSize(Form i_Form ,int i_WidthFactor ,int i_HeightFactor)
+        {
+            i_Form.Width = this.Width - i_WidthFactor;
+            i_Form.Height = this.Height - i_HeightFactor;
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int heightFactor = k_Margin * GameUtils.k_AboutFormHeightFactorMultiplayer;
+            int widthFactor = (k_Margin * GameUtils.k_AboutFormWidthFactorMultiplayer) - GameUtils.k_AboutFormWidthFactorAdjustment;
+            setControlSize(m_FormAbout, widthFactor, heightFactor);
+            m_FormAbout.ShowDialog();
         }
     }
 }
