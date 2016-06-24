@@ -66,6 +66,12 @@
     <Compile Include="FormGame.Designer.cs">
       <DependentUpon>FormGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormYesNoMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormYesNoMessageBox.Designer.cs">
+      <DependentUpon>FormYesNoMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameManager.cs" />
     <Compile Include="FloatingCoin.cs">
       <SubType>Component</SubType>
@@ -106,10 +112,13 @@
     <EmbeddedResource Include="FormGame.resx">
       <DependentUpon>FormGame.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormYesNoMessageBox.resx">
+      <DependentUpon>FormYesNoMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FullCellYellowHighlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QuestionMark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

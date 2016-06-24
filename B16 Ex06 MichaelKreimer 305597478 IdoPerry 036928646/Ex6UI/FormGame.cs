@@ -28,6 +28,7 @@ namespace Ex06_UI
         private PlayerMove m_LastPlayerMove;
         private FloatingCoin m_fallingCoin;
         private BoardButton m_LastCurrentSelectedButton;
+        private FormYesNoMessageBox m_FormYesNoMessageBox;
 
         public FormGame()
         {
@@ -47,6 +48,7 @@ namespace Ex06_UI
             else
             {
                 m_FormAbout = new FormAbout();
+                m_FormYesNoMessageBox = new FormYesNoMessageBox();
                 initFormHowToPlay();
                 initGame();
             }
@@ -174,16 +176,16 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
             m_GameProperties.ShowDialog();
             if (m_GameProperties.DialogResult == DialogResult.OK)
             {
-                DialogResult playerWantsToStartANewGame;
-                playerWantsToStartANewGame = openMessageBox(GameTexts.k_MessageStartNewGame, GameTexts.k_MessageBoxTitle);
-                if(playerWantsToStartANewGame == DialogResult.Yes)
+                m_FormYesNoMessageBox.Message = GameTexts.k_MessageStartNewGame;
+                m_FormYesNoMessageBox.ShowDialog();
+                if (m_FormYesNoMessageBox.DialogResult == DialogResult.Yes)
                 {
                     resetGame();
                 }
                 else
                 {
+                    //TODO CHANGE TO Custom Form
                     MessageBox.Show(GameTexts.k_MessageSChangesWillEffectNextGame, GameTexts.k_MessageBoxTitle, MessageBoxButtons.OK);
-
                 }
             }
         }
@@ -254,24 +256,25 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
         {
             if (i_gameStatus != GameBoard.eBoardStatus.NextPlayerCanPlay)
             {
-                DialogResult playerWantsToPlayAgain;
                 if (i_gameStatus == GameBoard.eBoardStatus.PlayerWon)
                 {
                     int playerNumber = (m_TurnNumber - 1) % GameUtils.k_NumberOfPlayers;
                     string playerWonMessage = string.Format(GameTexts.k_MessageWin, m_PlayersInfo[playerNumber].Name);
                     timerWiningPath.Start();
-                    playerWantsToPlayAgain = openMessageBox(playerWonMessage, GameTexts.k_MessageBoxTitle);
+                    m_FormYesNoMessageBox.Message = playerWonMessage;
+                    m_FormYesNoMessageBox.ShowDialog();
                     timerWiningPath.Stop();
-                    m_PlayersInfo[playerNumber].Score += playerWantsToPlayAgain.Equals(DialogResult.Yes) ? 1 : 0;
+                    m_PlayersInfo[playerNumber].Score += m_FormYesNoMessageBox.DialogResult == DialogResult.Yes ? 1 : 0;
                     updateStatusStripScore();
                     this.Refresh();
                 }
                 else
                 {
-                    playerWantsToPlayAgain = openMessageBox(GameTexts.k_MessageTie, GameTexts.k_MessageBoxTitle);
+                    m_FormYesNoMessageBox.Message = GameTexts.k_MessageTie;
+                    m_FormYesNoMessageBox.ShowDialog();
                 }
 
-                if (playerWantsToPlayAgain == DialogResult.No)
+                if (m_FormYesNoMessageBox.DialogResult == DialogResult.No)
                 {
                     this.Close();
                 }
@@ -315,12 +318,6 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
                     m_UIGameBoard[i, j].Dispose();
                 }
             }
-        }
-
-        private DialogResult openMessageBox(string i_Message, string i_MessageTitle)
-        {
-            DialogResult dialogResult = MessageBox.Show(i_Message, i_MessageTitle, MessageBoxButtons.YesNo);
-            return dialogResult;
         }
 
         private Image getCurrentPlayerTileImage()
@@ -403,6 +400,7 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
             {
                 m_UIGameBoard[point.X, point.Y].Image = getBoardTileAlternativeImage();
             }
+            ++m_numberOfHighlighTicks;
             this.Refresh();
         }
 
@@ -432,7 +430,6 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
                 }
             }
             
-            ++m_numberOfHighlighTicks;
             return result;
         }
     }
