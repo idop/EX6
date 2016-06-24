@@ -1,6 +1,6 @@
 ﻿namespace Ex06_UI
 {
-    partial class FormYesNoMessageBox
+    public partial class FormYesNoMessageBox
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 

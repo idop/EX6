@@ -21,6 +21,7 @@ namespace Ex06_UI
             {
                 return labelMessage.Text;
             }
+
             set
             {
                 labelMessage.Text = value;

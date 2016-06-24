@@ -1,7 +1,6 @@
-﻿using Ex06_GameUtils;
-using Ex06_GameLogic;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
+using Ex06_GameLogic;
 
 namespace Ex06_UI
 {

@@ -6,7 +6,6 @@ using Ex06_GameLogic;
 using Ex06_GameUtils;
 using Ex06_UI.Properties;
 
-
 namespace Ex06_UI
 {
     public partial class FormGame : Form
@@ -68,9 +67,9 @@ namespace Ex06_UI
             m_numberOfHighlighTicks = 0;
             this.Controls.Remove(panelGameBoard);
             panelGameBoard.Height = r_GamePieceSize.Height * (m_NumberOfRows + 1);
-            panelGameBoard.Width = r_GamePieceSize .Width * (m_NumberOfColumns);
+            panelGameBoard.Width = r_GamePieceSize.Width * m_NumberOfColumns;
             this.Width = panelGameBoard.Width + (k_Margin * 2);
-            this.Height = panelGameBoard.Height + (k_Margin * 3) + menuStrip1.Height + statusStrip1.Height ;
+            this.Height = panelGameBoard.Height + (k_Margin * 3) + menuStrip1.Height + statusStrip1.Height;
             this.Controls.Add(panelGameBoard);
             panelGameBoard.SendToBack();
             m_GameManager = new GameManager(m_NumberOfRows, m_NumberOfColumns);
@@ -184,7 +183,6 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
                 }
                 else
                 {
-                    //TODO CHANGE TO Custom Form
                     MessageBox.Show(GameTexts.k_MessageSChangesWillEffectNextGame, GameTexts.k_MessageBoxTitle, MessageBoxButtons.OK);
                 }
             }
@@ -364,7 +362,7 @@ m_PlayersInfo[GameUtils.k_SecondPlayerIndex].Score);
             m_FormHowToPlay.ShowDialog();
         }
 
-        private void setControlSize(Form i_Form ,int i_WidthFactor ,int i_HeightFactor)
+        private void setControlSize(Form i_Form, int i_WidthFactor, int i_HeightFactor)
         {
             i_Form.Width = this.Width - i_WidthFactor;
             i_Form.Height = this.Height - i_HeightFactor;

@@ -7,8 +7,6 @@ namespace Ex06_GameUtils
     public class GameTexts
     {
         public const string k_CurrentPlayer = "Current Player:";
-        public const string k_AWin = "A Win!!!";
-        public const string k_ATie = "A Tie!";
         public const string k_MessageBoxTitle = "4 In a Row !!";
         public const string k_MessageWin =
 @"{0} Won!!
@@ -18,8 +16,8 @@ Another Round?";
 @"Tie!!
 Another Round?";
 
-        public static string k_MessageStartNewGame = "Start a new game?";
-        public static string k_MessageSChangesWillEffectNextGame =
+        public const string k_MessageStartNewGame = "Start a new game?";
+        public const string k_MessageSChangesWillEffectNextGame =
 @"New game properties will take effect
 on the next game";
     }
