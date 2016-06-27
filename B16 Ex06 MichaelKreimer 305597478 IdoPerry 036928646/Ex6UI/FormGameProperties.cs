@@ -17,46 +17,34 @@ namespace Ex06_UI
 
         public string Player1Name
         {
-            get
-            {
-                return TextBoxPlayer1.Text;
-            }
+            get { return TextBoxPlayer1.Text; }
         }
 
         public string Player2Name
         {
-            get
-            {
-                return TextBoxPlayer2.Text;
-            }
+            get { return TextBoxPlayer2.Text; }
         }
 
         public int Rows
         {
-            get
-            {
-                return (int)nUDRows.Value;
-            }
+            get { return (int) nUDRows.Value; }
         }
 
         public int Coloumns
         {
-            get
-            {
-                return (int)nUDCols.Value;
-            }
+            get { return (int) nUDCols.Value; }
         }
 
         private void ButtonStart_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            this.Close();
+            Close();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            this.Close();
+            Close();
         }
     }
 }

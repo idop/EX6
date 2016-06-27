@@ -17,21 +17,15 @@ namespace Ex06_UI
 
         public string[] Lines
         {
-            get
-            {
-                return textBoxHowToPlay.Lines;
-            }
+            get { return textBoxHowToPlay.Lines; }
 
-            set
-            {
-                textBoxHowToPlay.Lines = value;
-            }
+            set { textBoxHowToPlay.Lines = value; }
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

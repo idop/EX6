@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace Ex06_GameLogic
 {
-    public class GameBoard 
+    public class GameBoard
     {
         private const int k_NumberOfSquaresInARowNeededForVictory = 4;
         private List<Point> m_FourInARowPath;
@@ -13,7 +13,7 @@ namespace Ex06_GameLogic
         {
             EmptySquare,
             Player1Square,
-            Player2Square 
+            Player2Square
         }
 
         public enum eBoardStatus : byte
@@ -37,34 +37,22 @@ namespace Ex06_GameLogic
 
         public int Rows
         {
-            get
-            {
-                return m_GameBoard.GetLength(0);
-            }
+            get { return m_GameBoard.GetLength(0); }
         }
 
         public int Columns
         {
-            get
-            {
-                return m_GameBoard.GetLength(1);
-            }
+            get { return m_GameBoard.GetLength(1); }
         }
 
         public IList<Point> FourInARowWiningPath
         {
-            get
-            {
-                return this.m_FourInARowPath.AsReadOnly();
-            }
+            get { return m_FourInARowPath.AsReadOnly(); }
         }
 
         public eBoardStatus BoardStatus
         {
-            get
-            {
-                return m_BoardStatus;
-            }
+            get { return m_BoardStatus; }
         }
 
         public void ClearBoard()
@@ -128,7 +116,10 @@ namespace Ex06_GameLogic
             return playerWon;
         }
 
-        private bool checkCurrentColumn(int i_LastInstertedRow, int i_LastInsertedColumn, eBoardSquare currentPlayerSquare)
+        private bool checkCurrentColumn(
+            int i_LastInstertedRow,
+            int i_LastInsertedColumn,
+            eBoardSquare currentPlayerSquare)
         {
             bool playerWon = false;
             int maxNumberofSquaresInARow = 1;
@@ -188,7 +179,10 @@ namespace Ex06_GameLogic
             m_FourInARowPath.Add(new Point(i_LastInstertedRow, i_LastInsertedColumn));
         }
 
-        private bool checkCurrentDiagonals(int i_LastInstertedRow, int i_LastInsertedColumn, eBoardSquare currentPlayerSquare)
+        private bool checkCurrentDiagonals(
+            int i_LastInstertedRow,
+            int i_LastInsertedColumn,
+            eBoardSquare currentPlayerSquare)
         {
             bool playerWon = checkLeftDiagonal(i_LastInstertedRow, i_LastInsertedColumn, currentPlayerSquare);
             if (!playerWon)
@@ -199,7 +193,10 @@ namespace Ex06_GameLogic
             return playerWon;
         }
 
-        private bool checkRightDiagonal(int i_LastInstertedRow, int i_LastInsertedColumn, eBoardSquare currentPlayerSquare)
+        private bool checkRightDiagonal(
+            int i_LastInstertedRow,
+            int i_LastInsertedColumn,
+            eBoardSquare currentPlayerSquare)
         {
             bool playerWon = false;
             bool isSameSquare = true;
@@ -227,9 +224,9 @@ namespace Ex06_GameLogic
                 ++diagonalRowIndex;
             }
 
-             isSameSquare = true;
-             diagonalRowIndex = i_LastInstertedRow - 1;
-             diagonalColumnIndex = i_LastInsertedColumn + 1;
+            isSameSquare = true;
+            diagonalRowIndex = i_LastInstertedRow - 1;
+            diagonalColumnIndex = i_LastInsertedColumn + 1;
 
             while (diagonalRowIndex >= 0 && diagonalColumnIndex < Columns && !playerWon && isSameSquare)
             {
@@ -255,7 +252,10 @@ namespace Ex06_GameLogic
             return playerWon;
         }
 
-        private bool checkLeftDiagonal(int i_LastInstertedRow, int i_LastInsertedColumn, eBoardSquare currentPlayerSquare)
+        private bool checkLeftDiagonal(
+            int i_LastInstertedRow,
+            int i_LastInsertedColumn,
+            eBoardSquare currentPlayerSquare)
         {
             bool playerWon = false;
             bool isSameSquare = true;

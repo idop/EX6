@@ -13,28 +13,16 @@
 
         public string Name
         {
-            get
-            {
-                return m_Name;
-            }
+            get { return m_Name; }
 
-            set
-            {
-                m_Name = value;
-            }
+            set { m_Name = value; }
         }
 
         public int Score
         {
-            get
-            {
-                return m_Score;
-            }
+            get { return m_Score; }
 
-            set
-            {
-                m_Score = value;
-            }
+            set { m_Score = value; }
         }
 
         public override string ToString()

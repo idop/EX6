@@ -17,27 +17,21 @@ namespace Ex06_UI
 
         public string Message
         {
-            get
-            {
-                return labelMessage.Text;
-            }
+            get { return labelMessage.Text; }
 
-            set
-            {
-                labelMessage.Text = value;
-            }
+            set { labelMessage.Text = value; }
         }
 
         private void buttonYes_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Yes;
-            this.Close();
+            DialogResult = DialogResult.Yes;
+            Close();
         }
 
         private void buttonNo_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.No;
-            this.Close();
+            DialogResult = DialogResult.No;
+            Close();
         }
     }
 }

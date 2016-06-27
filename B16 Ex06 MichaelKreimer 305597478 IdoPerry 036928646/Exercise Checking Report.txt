@@ -1,0 +1,10 @@
+============================Exercise Checking Report=================
+Exercise No...........: 6
+First Student Details.: 305597478 Michael Kreimer
+Second Student Details: 036928646 Ido Perry
+Delivery Date.........: 28 - June - 2016
+Delivered In Delay....: No
+Delay Reason..........: -
+Visual Studio Version.: 2015
+Comments..............: -
+========================End Exercise Checking Report==================

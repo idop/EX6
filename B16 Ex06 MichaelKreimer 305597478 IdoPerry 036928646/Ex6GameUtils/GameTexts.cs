@@ -8,6 +8,7 @@ namespace Ex06_GameUtils
     {
         public const string k_CurrentPlayer = "Current Player:";
         public const string k_MessageBoxTitle = "4 In a Row !!";
+
         public const string k_MessageWin =
 @"{0} Won!!
 Another Round?";
@@ -17,6 +18,7 @@ Another Round?";
 Another Round?";
 
         public const string k_MessageStartNewGame = "Start a new game?";
+
         public const string k_MessageSChangesWillEffectNextGame =
 @"New game properties will take effect
 on the next game";

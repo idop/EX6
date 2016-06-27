@@ -17,7 +17,7 @@ namespace Ex06_UI
 
         private void FormAbout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

@@ -6,8 +6,8 @@ namespace Ex06_UI
     {
         public static void Main()
         {
-            FormGame Game = new FormGame();
-                Game.ShowDialog();
+            FormGame game = new FormGame();
+            game.ShowDialog();
         }
     }
 }

@@ -17,24 +17,28 @@ namespace Ex06_UI
             InitializeComponent();
             setControlRegion();
         }
-        
+
         private void InitializeComponent()
-        { 
-            this.BackgroundImage = Properties.Resources.EmptyCell;
-            this.BackgroundImageLayout = ImageLayout.Center;
-            this.DoubleBuffered = true;
-            this.Margin = new Padding(0);
-            this.Size = new Size(67, 67);
-            this.Enabled = false;
+        {
+            BackgroundImage = Properties.Resources.EmptyCell;
+            BackgroundImageLayout = ImageLayout.Center;
+            DoubleBuffered = true;
+            Margin = new Padding(0);
+            Size = new Size(67, 67);
+            Enabled = false;
         }
 
         private void setControlRegion()
         {
             GraphicsPath path = new GraphicsPath();
-            path.AddRectangle(new Rectangle(0, 0, this.Width, this.Height));
-            path.AddEllipse(k_ElipsePadding, k_ElipsePadding, this.Width - (2 * k_ElipsePadding), this.Height - (2 * k_ElipsePadding));
+            path.AddRectangle(new Rectangle(0, 0, Width, Height));
+            path.AddEllipse(
+                k_ElipsePadding,
+                k_ElipsePadding,
+                Width - (2 * k_ElipsePadding),
+                Height - (2 * k_ElipsePadding));
             Region region = new Region(path);
-            this.Region = region;
+            Region = region;
         }
     }
 }

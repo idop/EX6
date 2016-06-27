@@ -10,12 +10,12 @@ namespace Ex06_UI
     {
         public BoardButton()
         {
-            this.BackColor = System.Drawing.Color.Thistle;
-            this.Margin = new Padding(0);
-            this.Size = new Size(67, 67);
-            this.BackgroundImageLayout = ImageLayout.None;
-            this.ForeColor = Color.Thistle;
-            this.Enabled = true;
+            BackColor = Color.Thistle;
+            Margin = new Padding(0);
+            Size = new Size(67, 67);
+            BackgroundImageLayout = ImageLayout.None;
+            ForeColor = Color.Thistle;
+            Enabled = true;
         }
     }
 }
