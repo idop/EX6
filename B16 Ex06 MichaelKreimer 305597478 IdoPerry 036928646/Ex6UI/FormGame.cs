@@ -76,17 +76,30 @@ namespace Ex06_UI
             initGameBoardButtons();
             initGameBoard();
             initMouseFollower();
+            initFallingCoin();
+        }
+
+        private void initFallingCoin()
+        {
+            m_FallingCoin = new FloatingCoin(Resources.CoinRed.Height, Resources.CoinRed.Width);
+            m_FallingCoin.Tick += timerFall_Tick;
+            m_FallingCoin.Interval = 100;
         }
 
         private void initMouseFollower()
         {
             if (m_MouseFollower == null)
             {
-                m_MouseFollower = new FloatingCoin(getCurrentPlayerImage());
-                m_MouseFollower.Location = Cursor.Position;
-                Controls.Add(m_MouseFollower);
-                m_MouseFollower.BringToFront();
+                m_MouseFollower = new FloatingCoin(Resources.CoinRed.Height, Resources.CoinRed.Width);
             }
+
+            m_MouseFollower.Image = getCurrentPlayerImage();
+            m_MouseFollower.Tick += timerMouseFollow_Tick;
+            m_MouseFollower.Interval = 10;
+            m_MouseFollower.Location = Cursor.Position;
+            Controls.Add(m_MouseFollower);
+            m_MouseFollower.BringToFront();
+            m_MouseFollower.Start();
         }
 
         private void initGameBoard()
@@ -240,21 +253,22 @@ namespace Ex06_UI
 
         private void dropCoin()
         {
-            m_FallingCoin = new FloatingCoin(getCurrentPlayerImage());
+            m_FallingCoin.Image = getCurrentPlayerImage();
             m_FallingCoin.Location = m_LastCurrentSelectedButton.Location;
             disposeMouseFollower();
             Controls.Add(m_FallingCoin);
             m_FallingCoin.BringToFront();
-            timerFall.Start();
+            m_FallingCoin.Interval = 100;
+            m_FallingCoin.Start();
+            Cursor = Cursors.WaitCursor;
         }
 
         private void disposeMouseFollower()
         {
+            m_MouseFollower.Stop();
             if (m_MouseFollower != null)
             {
                 Controls.Remove(m_MouseFollower);
-                m_MouseFollower.Dispose();
-                m_MouseFollower = null;
             }
         }
 
@@ -336,15 +350,6 @@ namespace Ex06_UI
             return m_TurnNumber % GameUtils.k_NumberOfPlayers == 0 ? Resources.CoinRed : Resources.CoinYellow;
         }
 
-        private void FormGame_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (m_MouseFollower != null)
-            {
-                m_MouseFollower.Location = e.Location;
-                m_MouseFollower.BringToFront();
-            }
-        }
-
         private void startANewGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             resetGame();
@@ -395,9 +400,9 @@ namespace Ex06_UI
             else
             {
                 Controls.Remove(m_FallingCoin);
-                m_FallingCoin.Dispose();
-                timerFall.Stop();
+                m_FallingCoin.Stop();
                 updateFormWithUserAction();
+                Cursor = Cursors.Default;
             }
         }
 
@@ -424,6 +429,18 @@ namespace Ex06_UI
             }
 
             return result;
+        }
+
+        private void timerMouseFollow_Tick(object sender, EventArgs e)
+        {
+            if (m_MouseFollower != null)
+            {
+                Point newMouseFollowerPosition = PointToClient(Cursor.Position);
+                newMouseFollowerPosition.X += GameUtils.k_MouseFollowerXOffset;
+                newMouseFollowerPosition.Y += GameUtils.k_MouseFollowerYOffset;
+                m_MouseFollower.Location = newMouseFollowerPosition;
+                m_MouseFollower.BringToFront();
+            }
         }
     }
 }

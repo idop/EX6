@@ -48,6 +48,7 @@
             this.panelGameBoard = new System.Windows.Forms.Panel();
             this.timerFall = new System.Windows.Forms.Timer(this.components);
             this.timerWiningPath = new System.Windows.Forms.Timer(this.components);
+            this.timerMouseFollow = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -199,6 +200,12 @@
             // 
             this.timerWiningPath.Tick += new System.EventHandler(this.timerWiningPath_Tick);
             // 
+            // timerMouseFollow
+            // 
+            this.timerMouseFollow.Enabled = true;
+            this.timerMouseFollow.Interval = 10;
+            this.timerMouseFollow.Tick += new System.EventHandler(this.timerMouseFollow_Tick);
+            // 
             // FormGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -213,7 +220,6 @@
             this.Name = "FormGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormTest";
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormGame_MouseMove);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -243,5 +249,6 @@
         private System.Windows.Forms.Panel panelGameBoard;
         private System.Windows.Forms.Timer timerFall;
         private System.Windows.Forms.Timer timerWiningPath;
+        private System.Windows.Forms.Timer timerMouseFollow;
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace Ex06_GameUtils
+﻿using System.Drawing;
+using System.Reflection;
+
+namespace Ex06_GameUtils
 {
     public class GameUtils
     {
@@ -11,5 +14,7 @@
         public const int k_AboutFormWidthFactorMultiplayer = 2;
         public const int k_AboutFormWidthFactorAdjustment = 10;
         public const int k_FallingCoinSpeed = 100;
+        public const int k_MouseFollowerYOffset = -5;
+        public const int k_MouseFollowerXOffset = -5;
     }
 }
